@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingCard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="cart.css"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-color">
+        <a class="navbar-brand Shop " href="#">ShoppingCard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link nvb" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nvb" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nvb" href="#">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle account" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+              </a>
+              <div class="dropdown-menu account" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Setting</a>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://image.freepik.com/photos-gratuite/boites-emballage-sac-dans-panier-ordinateur-portable-pour-concept-magasinage-livraison-ligne_38716-138.jpg" width="100%" height="600" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" width="100%" height="600" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="https://freedesignfile.com/upload/2017/02/Couple-shopping-HD-picture.jpg" width="100%" height="600" alt="">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-body crd">
+            <img src="https://png.pngtree.com/png-clipart/20190619/original/pngtree-vector-shopping-cart-icon-png-image_4013528.jpg" width="2%" height="2%">
+              Shopping Bag total : <label><span id="total-price" style="padding-left: 10px;">0</span>DT</label>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 bttn">
+          <div class="col">
+            <button type="button" class="btn btn-danger croix-button " style="background-color: transparent; border: none; outline: none; color: red;" >X</button>
+            <button type="button" class="btn btn-warning heart-button" style="color: grey; background-color: transparent; border: none; outline: none; " >♥</button>
+          </div>
+          <div class="col"><img src="data:image/jpeg;base64,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" ></div>
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-sm plus-button"> +</button>
+            <button type="button" class="btn btn-primary quantite-label" data-toggle="button" aria-pressed="false">
+                0
+              </button>
+            <button type="button" class="btn btn-secondary btn-sm minus-button"> -</button>
+          </div>
+          <div class="col price-value">15 <span>DT</span></div>
+          
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+          <div class="col">
+            <button type="button" class="btn btn-danger croix-button" style="background-color: transparent; border: none; outline: none; color: red;" >X</button>
+            <button type="button" class="btn btn-warning heart-button" style="color: grey; background-color: transparent; border: none; outline: none; " >♥</button>
+          </div>
+          <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJEha7Bg0hbhKDITsTyXysbKtBe-kpsngiUgRM_cbfyvWH7WdA" ></div>
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-sm plus-button"> +</button>
+            <button type="button" class="btn btn-primary quantite-label" data-toggle="button" aria-pressed="false">
+                0
+              </button>
+            <button type="button" class="btn btn-secondary btn-sm minus-button"> -</button>
+          </div>
+          <div class="col price-value">25 <span>DT</span></div>
+          
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+          <div class="col">
+            <button type="button" class="btn btn-danger croix-button" style="background-color: transparent; border: none; outline: none; color: red;" >X</button>
+            <button type="button" class="btn btn-warning heart-button" style="color: grey; background-color: transparent; border: none; outline: none; " >♥</button>
+          </div>
+          <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBR_ULm_4cc5RqWITDWUlmf-AvPhAm0nb-cZem5nl3jd51Ile9" ></div>
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-sm plus-button"> +</button>
+            <button type="button" class="btn btn-primary quantite-label" data-toggle="button" aria-pressed="false">
+                0
+              </button>
+            <button type="button" class="btn btn-secondary btn-sm minus-button"> -</button>
+          </div>
+          <div class="col price-value">35 <span>DT</span></div>
+          
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+          <div class="col">
+            <button type="button" class="btn btn-danger croix-button" style="background-color: transparent; border: none; outline: none; color: red;" >X</button>
+            <button type="button" class="btn btn-warning heart-button" style="color: grey; background-color: transparent; border: none; outline: none; " >♥</button>
+          </div>
+          <div class="col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSeym8rTE8px-9gb_NwLft4mQm7KVHRB1q4cfg9_zYJ5Ggl1ony" ></div>
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-sm plus-button"> +</button>
+            <button type="button" class="btn btn-primary quantite-label" data-toggle="button" aria-pressed="false">
+                0
+              </button>
+            <button type="button" class="btn btn-secondary btn-sm minus-button"> -</button>
+          </div>
+          <div class="col price-value">10 <span>DT</span></div>
+        </div>
+      </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+<script src="chopping.js"></script>
+</html>

@@ -1,0 +1,58 @@
+.navbar-color{
+    background-color: #353A40;
+    
+}
+.navbar-color{
+display: flex;
+justify-content: right;
+}
+.container{
+    align-items: center;
+}
+.account{
+    margin-left: 850px;
+    color: white
+}
+.Shop{
+    color: green;
+    font-weight: bold;
+    font-size: large;
+}
+.nvb{
+    color: white;
+}
+.crd{
+    background-color:#353A40;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+.croix-button{
+    margin-top: 50%;
+    background-color: transparent; 
+    border: none; 
+    outline: none;
+    border: white;
+}
+.heart-button{
+    margin-top: 50%;
+    background-color: transparent; 
+    border: none; 
+    outline: none;
+}
+.plus-button{
+    margin-top: 50%;
+}
+.quantite-label{
+    margin-top: 50%;
+}
+.minus-button{
+    margin-top: 50%;
+}
+.price-value{
+    margin-top: 11%;
+    font-weight: bold;
+    font-size: large;
+}
+
+
